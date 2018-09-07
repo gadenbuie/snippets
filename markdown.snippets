@@ -7,6 +7,9 @@ snippet details
 	${2:stuff}
 	</details>
 
+snippet twe "Blogdown Tweet Shortcode"
+	`r blogdown::shortcode("tweet", "${1:tweetid}")`
+
 snippet css
 	```{css}
 	${1:css}
@@ -15,5 +18,3 @@ snippet css
 snippet pkg
 	[${1:package}]{.pkg}
 
-snippet twe "Blogdown Tweet Shortcode"
-	`r blogdown::shortcode("tweet", "${1:tweetid}")`
