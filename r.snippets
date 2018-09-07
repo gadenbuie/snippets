@@ -38,3 +38,58 @@ snippet a=
 
 snippet zz
 	${1:var} <- ${1:var} %||% ${2:val}
+
+
+# ------------------------------------------------------------
+# ggplot2
+# ------------------------------------------------------------
+
+snippet gg "ggplot generic"
+	ggplot(${1:data}, aes(${2:aes})) + ${0}
+
+snippet gl "ggplot line"
+	ggplot(${1:data}, aes(${2:x}, ${3:y})) + geom_line()${0}
+
+snippet gp "ggplot point"
+	ggplot(${1:data}, aes(${2:x}, ${3:y})) + geom_point()${0}
+
+snippet gs "ggsave()"
+	ggsave("${1:filename}.pdf", width = ${2:6}, height = ${3:6})${0}
+
+snippet ge "geom_*"
+	geom_${1:point}(${0})
+
+
+# ------------------------------------------------------------
+# dplyr, purrr
+# ------------------------------------------------------------
+snippet br "bind_rows()"
+	bind_rows(${0})
+
+snippet bc "bind_cols()"
+	bind_cols(${0})
+
+snippet jo "*_join"
+	${1:inner}_join(${0})
+
+snippet pmd "purrr::map_dfr()"
+	purrr::map_dfr(${0})
+
+snippet pmdc "purrr::map_dfc()"
+	purrr::map_dfc(${0})
+
+snippet pm "purrr::map()"
+	purrr::map(${0})
+
+snippet pmc "purrr::map_chr()"
+	purrr::map_chr(${0})
+
+snippet pmi "purrr::map_int()"
+	purrr::map_int(${0})
+
+snippet pmb "purrr::map_lgl()"
+	purrr::map_lgl(${0})
+
+snippet pmdd "purrr::map_dbl()"
+	purrr::map_dbl(${0})
+
