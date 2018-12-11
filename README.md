@@ -4,7 +4,7 @@ Various custom snippets designed for RStudio, but possibly useful elsewhere.
 
 Copy the snippets into the correct language file from the **Global Options** > **Code** > **Edit Snippets** menu.
 
-Or use [dgrtwo/snippr](https://github.com/drgtwo/snippr) to install:
+Or use [dgrtwo/snippr](https://github.com/dgrtwo/snippr) to install:
 
 ```r
 # devtools::install_github("dgrtwo/snippr")
