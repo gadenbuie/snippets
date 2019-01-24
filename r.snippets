@@ -30,6 +30,9 @@ snippet aq
 snippet prettydate
 	strftime(Sys.time(), "%A, %b %d, %Y")
 
+snippet tts
+        strftime(Sys.time(), "${1:%F %T}")
+
 snippet hdr
 	# ---- ${1:header} ----
 
@@ -93,3 +96,37 @@ snippet pmb "purrr::map_lgl()"
 snippet pmdd "purrr::map_dbl()"
 	purrr::map_dbl(${0})
 
+# ------------------------------------------------------------
+# rlang
+# ------------------------------------------------------------
+snippet rlquo
+        ${1:var} <- rlang::enquo(${1:var})
+        ${1:var}_name <- rlang::quo_name(${1:var})
+
+# ------------------------------------------------------------
+# shiny
+# ------------------------------------------------------------
+snippet shinyapp
+        library(shiny)
+
+        ui <- fluidPage(
+          ${0}
+        )
+
+        server <- function(input, output, session) {
+
+        }
+
+        shinyApp(ui, server)
+
+snippet shinymod
+        ${1:name}UI <- function(id) {
+          ns <- NS(id)
+          tagList(
+                ${0}
+          )
+        }
+
+        ${1:name} <- function(input, output, session, ...) {
+	  ns <- session$ns
+        }
