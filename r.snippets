@@ -132,3 +132,25 @@ snippet shinymod
         ${1:name} <- function(input, output, session, ...) {
 	  ns <- session$ns
         }
+
+
+# ------------------------------------------------------------
+# testthat
+# ------------------------------------------------------------
+snippet ttht "Create test"
+	test_that("${1:description}", {
+	  $0
+	})
+endsnippet
+
+snippet ttef "Expect false"
+	expect_false(${1:${VISUAL}})
+endsnippet
+
+snippet ttet "Expect true"
+	expect_true(${1:${VISUAL}})
+endsnippet
+
+snippet ttee "Expect equal"
+	expect_equal(${1:${VISUAL}}, $2)
+endsnippet
