@@ -1,20 +1,86 @@
+
+# ------------------------------------------------------------
+# scripting
+# ------------------------------------------------------------
+
+snippet hb "exectuable script"
+	#!/usr/bin/env Rscript
+
+snippet lib
+	library(${1:package})
+
+snippet tidyverse
+	library(ggplot2)
+	library(tibble)
+	library(tidyr)
+	library(readr)
+	library(purrr)
+	library(dplyr)
+	library(stringr)
+	library(forcats)
+	library(lubridate)
+	library(glue)
+	library(fs)
+
+snippet req
+	require(${1:package})
+
+snippet reqns
+	if (!requireNamespace("${1:pkg}", quietly = TRUE)) {
+	  stop("`${1:pkg}` is required: install.packages('${1:pkg}')")
+	}
+
+snippet ifreqns
+	if (requireNamespace("${1:pkg}", quietly = TRUE)) {
+	  ${2:code}
+	}
+
+snippet reqgh
+	if (!requireNamespace("${1:pkg}", quietly = TRUE)) {
+	  stop("`${1:pkg}` is required: devtools::install_github('${2:user}/${1:pkg}')")
+	}
+
 snippet knkt
 	%>%
 	knitr::kable()
-	
+
 snippet docoptr
-	'usage: 
+	'usage:
 	  ${1:script.R} cmd [-f --arg=<msg>]
 	  ${1:script.R} -h | --help
-	
-	options: 
+
+	options:
 	 -f           Flag
 	 --arg=<msg>  Argument with value
 	 -h --help    Show this screen' -> doc
-	
+
 	library(docopt)
 	opts <- docopt(doc)
-	
+
+snippet sg
+	setGeneric("${1:generic}", function(${2:x, ...}) {
+	  standardGeneric("${1:generic}")
+	})
+
+snippet sm
+	setMethod("${1:generic}", ${2:class}, function(${2:x, ...}) {
+	  ${0}
+	})
+
+snippet sc
+	setClass("${1:Class}", slots = c(${2:name = "type"}))
+
+snippet s3generic
+	${1:generic} <- function(x, ...) UseMethod("${1:generic}", x)
+
+	${1:generic}.${2:method} <- function(x, ...) {
+	  ${3:code}
+	}
+
+# ------------------------------------------------------------
+# general
+# ------------------------------------------------------------
+
 snippet aa
 	${1:var} <- ${1:var} %>%
 	  ${2:code}
@@ -22,7 +88,7 @@ snippet aa
 snippet qq
 	${1:var} %>%
 	  ${2:code}
-	  
+
 snippet aq
 	${1:newvar} <- ${2:df} %>%
 	  ${3:code}
@@ -31,7 +97,7 @@ snippet prettydate
 	strftime(Sys.time(), "%A, %b %d, %Y")
 
 snippet tts
-        strftime(Sys.time(), "${1:%F %T}")
+	strftime(Sys.time(), "${1:%F %T}")
 
 snippet hdr
 	# ---- ${1:header} ----
@@ -42,8 +108,11 @@ snippet a=
 snippet zz
 	${1:var} <- ${1:var} %||% ${2:val}
 
-snippet here
+snippet hh
 	here::here("${1:path}")
+
+snippet ie
+	if (${1:cond}) ${2:true} else ${3:false}
 
 # ------------------------------------------------------------
 # ggplot2
@@ -95,43 +164,43 @@ snippet pmi "purrr::map_int()"
 snippet pmb "purrr::map_lgl()"
 	purrr::map_lgl(${0})
 
-snippet pmdd "purrr::map_dbl()"
+snippet pmdb "purrr::map_dbl()"
 	purrr::map_dbl(${0})
 
 # ------------------------------------------------------------
 # rlang
 # ------------------------------------------------------------
 snippet rlquo
-        ${1:var} <- rlang::enquo(${1:var})
-        ${1:var}_name <- rlang::quo_name(${1:var})
+	${1:var} <- rlang::enquo(${1:var})
+	${1:var}_name <- rlang::quo_name(${1:var})
 
 # ------------------------------------------------------------
 # shiny
 # ------------------------------------------------------------
 snippet shinyapp
-        library(shiny)
+	library(shiny)
 
-        ui <- fluidPage(
-          ${0}
-        )
+	ui <- fluidPage(
+	  ${0}
+	)
 
-        server <- function(input, output, session) {
+	server <- function(input, output, session) {
 
-        }
+	}
 
-        shinyApp(ui, server)
+	shinyApp(ui, server)
 
 snippet shinymod
-        ${1:name}UI <- function(id) {
-          ns <- NS(id)
-          tagList(
-                ${0}
-          )
-        }
+	${1:name}UI <- function(id) {
+	  ns <- NS(id)
+	  tagList(
+	    ${0}
+	  )
+	}
 
-        ${1:name} <- function(input, output, session, ...) {
+	${1:name} <- function(input, output, session, ...) {
 	  ns <- session$ns
-        }
+	}
 
 
 # ------------------------------------------------------------
@@ -141,16 +210,12 @@ snippet ttht "Create test"
 	test_that("${1:description}", {
 	  $0
 	})
-endsnippet
 
 snippet ttef "Expect false"
 	expect_false(${1:${VISUAL}})
-endsnippet
 
 snippet ttet "Expect true"
 	expect_true(${1:${VISUAL}})
-endsnippet
 
 snippet ttee "Expect equal"
 	expect_equal(${1:${VISUAL}}, $2)
-endsnippet
