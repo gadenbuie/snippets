@@ -1,9 +1,27 @@
+snippet [
+	[${1:label}](${2:location})
+
+snippet ![
+	![${1:label}](${2:location})
+
+snippet r
+	```{r ${1:label}, ${2:options}}
+	${0}
+	```
+
+snippet rcpp
+	```{r, engine='Rcpp'}
+	#include <Rcpp.h>
+	using namespace Rcpp;
+
+	${0}
+
 snippet kbd
 	<kbd>${1:key}</kbd>
 
 snippet details
 	<details><summary>${1:summary}</summary>
-	
+
 	${2:stuff}
 	</details>
 
@@ -11,8 +29,13 @@ snippet twe "Blogdown Tweet Shortcode"
 	`r blogdown::shortcode("tweet", "${1:tweetid}")`
 
 snippet css
-	```{css}
+	```{css echo=FALSE}
 	${1:css}
+	```
+
+snippet js
+	```{js}
+	${1:js}
 	```
 
 snippet pkg
