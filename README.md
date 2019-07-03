@@ -20,4 +20,17 @@ snippets_install_github("gadenbuie/snippets", language = "r")
 snippets_install_github("gadenbuie/snippets", language = "r", name = "aa")
 ```
 
+For manual installation, copy the snippets to `~/.R/snippets/r.snippets`.
+
+```r
+snippets_dir <- fs::path_home_r(".R", "snippets")
+gh_base_url <- "https://raw.githubusercontent.com/gadenbuie/snippets/master"
+for (snippet in paste0(c("r", "markdown"), ".snippets")) {
+  download.file(
+    glue::glue("{gh_base_url}/{snippet}"),
+    fs::path(snippets_dir, snippet)
+  )
+}
+```
+
 You may be able to find other useful snippets using [this GitHub search](https://github.com/search?q=in%3Apath+r.snippets+type%3Acode&type=Code).
