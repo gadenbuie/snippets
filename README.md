@@ -24,7 +24,10 @@ For manual installation, copy the snippets to `~/.R/snippets/r.snippets`.
 
 ```r
 snippets_dir <- fs::path_home_r(".R", "snippets")
+fs::dir_create(snippets_dir) # make sure ~/.R/snippets exists
+
 gh_base_url <- "https://raw.githubusercontent.com/gadenbuie/snippets/master/"
+
 for (snippet in paste0(c("r", "markdown"), ".snippets")) {
   download.file(
     paste0(gh_base_url, snippet),
