@@ -28,7 +28,7 @@ fs::dir_create(snippets_dir) # make sure ~/.R/snippets exists
 
 gh_base_url <- "https://raw.githubusercontent.com/gadenbuie/snippets/master/"
 
-for (snippet in paste0(c("r", "markdown"), ".snippets")) {
+for (snippet in paste0(c("r", "markdown", "css"), ".snippets")) {
   download.file(
     paste0(gh_base_url, snippet),
     fs::path(snippets_dir, snippet)
