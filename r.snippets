@@ -81,6 +81,22 @@ snippet s3generic
 	}
 
 # ------------------------------------------------------------
+# operators
+# ------------------------------------------------------------
+
+snippet op:default
+	# use y if x is.null
+	`%||%` <- function(x, y) if (is.null(x)) y else x
+
+snippet op:notnull
+	# use y if x is not null (otherwise NULL)
+	`%??%` <- function(x, y) if (!is.null(x)) y
+
+snippet op:notnullish
+	# use y if x is not null(ish) (otherwise NULL)
+	`%??%` <- function(x, y) if (!is.null(x) && x != "") y
+
+# ------------------------------------------------------------
 # general
 # ------------------------------------------------------------
 
