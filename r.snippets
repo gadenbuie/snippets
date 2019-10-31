@@ -232,6 +232,14 @@ snippet shinymod
 	  ns <- session$ns
 	}
 
+snippet shiny:external
+	options(shiny.launch.browser = .rs.invokeShinyWindowExternal)
+
+snippet shiny:window
+	options(shiny.launch.browser = .rs.invokeShinyWindowViewer)
+
+snippet shiny:pane
+	options(shiny.launch.browser = .rs.invokeShinyPaneViewer)
 
 # ------------------------------------------------------------
 # testthat
