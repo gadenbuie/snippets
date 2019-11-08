@@ -241,6 +241,17 @@ snippet shiny:window
 snippet shiny:pane
 	options(shiny.launch.browser = .rs.invokeShinyPaneViewer)
 
+snippet htmldep
+	htmltools::htmlDependency(
+	  name = "${1:name}",
+	  version = "${2:1.2.3}",
+	  package = "${3:pkg}",
+	  src = "${4:src}",
+	  script = "${5:script.js}",
+	  stylesheet = "${0:styles.css}",
+	  all_files = FALSE
+	)
+
 # ------------------------------------------------------------
 # testthat
 # ------------------------------------------------------------
