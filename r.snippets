@@ -275,3 +275,21 @@ snippet ttdt "Describe that"
 	    $0
 	  })
 	})
+
+
+# ------------------------------------------------------------
+# learnr
+# ------------------------------------------------------------
+snippet lrnq
+	question("${1:question}",
+	  answer("${2:answer_1}", correct = TRUE),
+	  answer("${3:answer_2}"),
+	  allow_retry = TRUE,
+	  random_answer_order = TRUE
+	)
+
+snippet lrnqz
+	quiz(
+	  caption = "${1:caption}",
+	  $0
+	)
