@@ -20,11 +20,11 @@ snippets_install_github("gadenbuie/snippets", language = "r")
 snippets_install_github("gadenbuie/snippets", language = "r", name = "aa")
 ```
 
-For manual installation, copy the snippets to `~/.R/snippets/r.snippets`.
+For manual installation, copy the snippets to `~/.R/snippets/r.snippets` or `~/.config/rstudio/snippets` for RStudio 1.3. (Windows uses a different directory that I don't know off the top of my head, sorry.). `usethis::edit_rstudio_snippets()` may provide better advice.
 
 ```r
 local({
-  snippets_dir <- fs::path_home_r(".R", "snippets")
+  snippets_dir <- fs::path_home(".config", "rstudio", "snippets")
   fs::dir_create(snippets_dir) # make sure ~/.R/snippets exists
 
   gh_base_url <- "https://raw.githubusercontent.com/gadenbuie/snippets/master/"
