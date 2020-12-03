@@ -205,3 +205,12 @@ snippet lrnq
 	  random_answer_order = TRUE
 	)
 	```
+
+# ------------------------------------------------------------
+# knitr
+# ------------------------------------------------------------
+
+snippet fig
+	```{r ${1:chunk-name}, echo=FALSE}
+	knitr::include_graphics(${2:location})
+	```
