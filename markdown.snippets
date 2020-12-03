@@ -33,44 +33,12 @@ snippet html:chunk
 	```{html ${1:label}, eval=${2:FALSE}}
 	${0}
 	```
-	
+
 snippet pkg
 	[${1:package}]{.pkg}
 
-# html snippets
-
-snippet html:basic
-	<!DOCTYPE html>
-	<html lang="en">
-	  <head>
-	    <meta charset="utf-8" />
-	    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-	    <title>${1:title}</title>
-	  </head>
-	  <body>
-	    $0
-	  </body>
-	</html>
-
-snippet div.
-	<div class="$1">$0</div>
-
-snippet div
-	<div>$0</div>
-
-snippet div#
-	<div id="$1"></div>
-
-snippet span.
-	<span class="$1">$0</span>
-
-snippet span
-	<span>$0</span>
-
-snippet span#
-	<span id="$1"></span>
+snippet !!
+	[$0](${1:url}){target="_blank" rel="noopener noreferrer"}
 
 snippet kbd
 	<kbd>${1:key}</kbd>
@@ -88,3 +56,152 @@ snippet msss "{{moustache}} section"
 	{{#$0}}
 	{{$0}}
 	{{/$0}}
+
+# ------------------------------------------------------------
+# html
+# ------------------------------------------------------------
+snippet html:basic
+	<!DOCTYPE html>
+	<html lang="en">
+	  <head>
+	    <meta charset="utf-8" />
+	    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	    <title>${1:title}</title>
+	  </head>
+	  <body>
+	    $0
+	  </body>
+	</html>
+snippet div.
+	<div class="$1">$0</div>
+snippet div
+	<div>$0</div>
+snippet div#
+	<div id="$1"></div>
+snippet span.
+	<span class="$1">$0</span>
+snippet span
+	<span>$0</span>
+snippet span#
+	<span id="$1"></span>
+
+
+# ------------------------------------------------------------
+# xaringn
+# ------------------------------------------------------------
+snippet flex
+	.flex${1:.flex-wrap}[
+	.w-${2:50}[
+	$0
+	]
+
+	.w-${3:50}[
+
+	]
+	]
+snippet .w
+	.w-${1:50}[
+	$0
+	]
+
+snippet bg
+	background-url: url($0)
+	background-size: ${1:cover}
+	background-position: ${2:center center}
+	background-repeat: ${3:no-repeat}
+
+snippet lt
+	layout: ${1:true}
+snippet lf
+	layout: ${2:false}
+snippet cl
+	class: ${0}
+snippet clhbg
+	class: ${1:header_background}${2}
+
+	# $0
+snippet slide
+	---
+	layout: ${1:false}
+	class: ${2:class}
+
+	# $0
+
+snippet lrcol
+	.left-column[
+	$1
+	]
+	.right-column[
+	$0
+	]
+
+snippet ps
+	.panelset[
+	$0
+	]
+snippet panel
+	.panel[.panel-name[${1:Panel Title}]
+	$0
+	]
+
+# ------------------------------------------------------------
+# learnr
+# ------------------------------------------------------------
+snippet lrn:setup
+	```{r setup, include=FALSE}
+	library(learnr)
+	tutorial_options($0)
+	```
+
+snippet lrnef
+	```{r $0-setup}
+	# exercise setup code
+	```
+
+	```{r $0, exercise = TRUE}
+	# exercise code
+	```
+
+	```{r $0-hint-1}
+	# hint code
+	```
+
+	```{r $0-hint-2}
+	# hint code
+	```
+
+	```{r $0-solution}
+	```
+
+	```{r $0-code-check}
+	grade_code()
+	```
+
+snippet lrne
+	```{r ${1:exercise-name}, exercise = TRUE}
+	${2:exercise_code}
+	```
+
+	```{r ${1:exercise-name}-hint}
+	# hint code
+	```
+
+	```{r ${1:exercise-name}-solution}
+	${2:exercise_code}
+	```
+
+	```{r ${1:exercise-name}-check}
+	grade_code(correct = "$0")
+	```
+
+snippet lrnq
+	```{r ${1:question-chunk-name}, echo=FALSE}
+	question("${2:question}",
+	  answer("${3:answer_1}", correct = TRUE),
+	  answer("${4:answer_2}"),
+	  allow_retry = TRUE,
+	  random_answer_order = TRUE
+	)
+	```
