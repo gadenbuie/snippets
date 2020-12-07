@@ -175,8 +175,11 @@ snippet lrnef
 	```{r $0-solution}
 	```
 
-	```{r $0-code-check}
-	grade_code()
+	```{r $0-check}
+	grade_result(
+	  pass_if(~ .result, "Pass Message"),
+	  fail_if(~ .result, "Fail message")
+	)
 	```
 
 snippet lrne
