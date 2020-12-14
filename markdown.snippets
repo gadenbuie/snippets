@@ -205,3 +205,11 @@ snippet lrnq
 	  random_answer_order = TRUE
 	)
 	```
+
+snippet lrnqz
+	```{r ${1:question-chunk-name}, echo=FALSE}
+	quiz(
+	  caption = "${2:caption}",
+	  $0
+	)
+	```
