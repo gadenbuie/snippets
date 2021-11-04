@@ -27,7 +27,7 @@ local({
   snippets_dir <- fs::path_home(".config", "rstudio", "snippets")
   fs::dir_create(snippets_dir) # make sure ~/.R/snippets exists
 
-  gh_base_url <- "https://raw.githubusercontent.com/gadenbuie/snippets/master/"
+  gh_base_url <- "https://raw.githubusercontent.com/gadenbuie/snippets/main/"
 
   for (snippet in paste0(c("r", "markdown", "css", "html"), ".snippets")) {
     download.file(
